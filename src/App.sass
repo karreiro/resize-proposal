@@ -1,0 +1,60 @@
+body
+  background-color: #d5e0d5
+  padding: 80px
+
+.resize-proposal
+  display: flex
+  div
+    user-select: none
+    background-color: #e6e6ea
+    display: inline-block
+    vertical-align: top
+    min-width: 200px
+    min-height: 70px
+    position: relative
+    outline: 1px solid #888
+  .draggable-line
+    position: absolute
+    display: block
+    min-width: 0
+    min-height: 0
+    top: 0
+    right: 0
+    content: " "
+    width: 5px
+    min-width: 3px
+    height: 100%
+    background-color: #000
+    cursor: col-resize
+  [data-draggable="key"].draggable-line
+    background-color: #333
+    z-index: 1
+  [data-draggable="value"].draggable-line
+    background-color: #888
+    z-index: 2
+  .key,
+  .value
+    position: relative
+    background-color: #fff
+    will-change: transform
+
+  .boxed
+    display: flex
+    flex-direction: row
+    position: relative
+    overflow: hidden
+    .header
+      background-color: #CCC
+    .key > div,
+    .value > div
+      display: block
+      font-weight: bold
+      min-height: 60px
+      background-color: #CCC
+    .key > div + div,
+    .value > div + div
+      font-weight: 400
+      min-height: 70px
+      background-color: #FFF
+    .value
+      flex-grow: 1
